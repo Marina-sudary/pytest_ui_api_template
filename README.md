@@ -2,6 +2,11 @@
 
 ## Шаблон для автоматизации тестирования на python
 
+### Шаги
+1. Склонировать проект `git clone https://github.com/Marina-sudary/pytest_ui_api_template.git`
+2. Установить зависимости
+3. Запустить тесты `pytest`
+
 ### Стек:
 - pytest
 - selenium

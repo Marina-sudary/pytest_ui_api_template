@@ -381,10 +381,6 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
-### Test ###
-### Ignore all files that could be used to test your code and
-### you wouldn't want to push
-
 # Reference https://en.wikipedia.org/wiki/Metasyntactic_variable
 
 # Most common
@@ -443,7 +439,6 @@ pyrightconfig.json
 *testsdir
 *testsfile
 *testsfiles
-*test
 *testdir
 *testfile
 *testfiles

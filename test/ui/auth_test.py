@@ -3,7 +3,6 @@ from pytest_ui_api_template.page.AuthPage import AuthPage
 from pytest_ui_api_template.page.MainPage import MainPage
 
 
-@pytest.mark.skip
 def auth_test(browser, test_data: dict):
     email = test_data.get("email")
     password = test_data.get("pass")

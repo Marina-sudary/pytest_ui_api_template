@@ -59,7 +59,7 @@ def dummy_board_id() -> str:
     return resp
 
 @pytest.fixture
-def delete_board() -> str:
+def delete_board() -> str: # type: ignore
     dictionary = {"board_id": ""}
     yield dictionary
 

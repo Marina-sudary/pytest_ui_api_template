@@ -1,6 +1,7 @@
 import requests
 
 class BoardApi:
+    base_url = "https://trello.com/ru"
     
     def __init__(self, base_url: str, token: str) -> None:
         self.base_url = base_url

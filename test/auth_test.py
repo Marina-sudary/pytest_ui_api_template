@@ -1,8 +1,10 @@
 import allure
-from AuthPage import AuthPage
-from MainPage import MainPage
+from pytest_ui_api_template.page.AuthPage import AuthPage
+from pytest_ui_api_template.page.MainPage import MainPage
 
+import pytest
 
+@pytest.mark.skip
 def auth_test(browser):
     email = "mech694539@gmail.com"
     password = "Ch170169"

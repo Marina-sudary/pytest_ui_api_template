@@ -5,12 +5,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 
 from configuration.configProvider import configProvider
+from testdata.DataProvider import DataProvider
 
 class MainPage:
 
     def __init__(self, driver: WebDriver) -> None:
         self.__driver = driver
         self.url = configProvider().get("ui", "base_url")
+        self.data = DataProvider()
         self.__url = self.url+"/u/skyeng_user_d/boards"
 
     @allure.step("Получить текущий URL")
@@ -38,7 +40,7 @@ class MainPage:
     def add_cookie(self):
         cookie = {
             "name": "token",
-            "value": "kluch - token"
+            "value": self.data.get_token()
         }
         self.__driver.add_cookie(cookie)
 

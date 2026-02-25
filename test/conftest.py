@@ -10,6 +10,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 from api.BoardApi import BoardApi
 from configuration.configProvider import configProvider
+from testdata.DataProvider import DataProvider
+
+url = configProvider().get("api", "base_url")
 
 @pytest.fixture
 def browser():
@@ -33,8 +36,11 @@ def browser():
 
 @pytest.fixture
 def api_client() -> BoardApi:
-    url = configProvider().get("api", "base_url")
-    return BoardApi(url, "token")
+    DataProvider().get_token()
+    return BoardApi(
+        configProvider().get("api", "base_url"), 
+        DataProvider().get_token()
+    )
 
 @pytest.fixture
 def api_client_no_auth() -> BoardApi:
@@ -42,7 +48,10 @@ def api_client_no_auth() -> BoardApi:
 
 @pytest.fixture
 def dummy_board_id() -> str:
-    api = BoardApi(configProvider().get("api", "base_url"), "token")
+    api = BoardApi(
+        configProvider().get("api", "base_url"),
+        DataProvider().get_token()
+    )
 
     with allure.step("Предварительно создать доску"):
         resp = api.create_board("Board to be deletede").get("id")
@@ -50,11 +59,18 @@ def dummy_board_id() -> str:
     return resp
 
 @pytest.fixture
-def delete_board() -> str: # pyright: ignore[reportInvalidTypeForm]
+def delete_board() -> str:
     dictionary = {"board_id": ""}
     yield dictionary
 
     with allure.step("Удалить ддоску после теста"):
-        api = BoardApi(configProvider().get("api", "base_url"), "token")
+        api = BoardApi(
+            configProvider().get("api", "base_url"),
+            DataProvider().get_token()
+        )
         api.delete_board_by_id(dictionary.get("board_id"))
+
+@pytest.fixture
+def test_data():
+    return DataProvider()
   

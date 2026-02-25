@@ -2,13 +2,12 @@ import allure
 from pytest_ui_api_template.page.AuthPage import AuthPage
 from pytest_ui_api_template.page.MainPage import MainPage
 
-import pytest
 
 @pytest.mark.skip
-def auth_test(browser):
-    email = "mech694539@gmail.com"
-    password = "Ch170169"
-    username = "Marina"
+def auth_test(browser, test_data: dict):
+    email = test_data.get("email")
+    password = test_data.get("pass")
+    username = test_data.get("username")
 
     auth_page = AuthPage(browser)
     auth_page.go()

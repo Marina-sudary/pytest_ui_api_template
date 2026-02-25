@@ -2,7 +2,7 @@
 
 ## Шаблон для автоматизации тестирования на python
 
-### Шаги
+### Шаги:
 1. Склонировать проект `git clone https://github.com/Marina-sudary/pytest_ui_api_template.git`
 2. Установить зависимости
 3. Запустить тесты `pytest`
@@ -17,16 +17,20 @@
 - allure
 - config
 
-### Структура;
+### Структура:
 - ./test - тесты
 - ./pages - описание страниц
 - ./api - хелперы для работы с API
 - ./db - хелперы для работы с БД (?)
-- test_config.ini - настройки для тестов
+- ./configuration - провайдер настроек
+   - test_config.ini - настройки для тестов
+- ./testdata - провайдер тестовых данных
+   - test_data.json 
 
-### Полезные ссылки
+### Полезные ссылки:
 - [Подсказка по markdown](https://www.markdownguide.org/basic-syntax/)
 - [Подсказка  по ./gitignore](https://www.toptal.com/developers/gitignore)
+- [Про configparser](https://docs.python.org/3/library/configparser.html#modul-configparser)
 
 ### Библиотеки (!)
 - pip install pytest

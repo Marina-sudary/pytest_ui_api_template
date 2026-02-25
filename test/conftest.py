@@ -1,6 +1,6 @@
 import allure
 import pytest
-import requests
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -8,7 +8,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.remote.webdriver import WebDriver
 
-from BoardApi import BoardApi
+from api.BoardApi import BoardApi
 from configuration.configProvider import configProvider
 
 @pytest.fixture
@@ -50,7 +50,7 @@ def dummy_board_id() -> str:
     return resp
 
 @pytest.fixture
-def delete_board() -> str:
+def delete_board() -> str: # pyright: ignore[reportInvalidTypeForm]
     dictionary = {"board_id": ""}
     yield dictionary
 

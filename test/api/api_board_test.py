@@ -1,7 +1,11 @@
-import requests
 from api.BoardApi import BoardApi
 
 base_url = "https://trello.com/ru"
+
+def test_get_boards():
+    api = BoardApi()
+    board_list = api.get_all_boards_by_org_id("id organizatsii")
+    print(board_list)
 
 def test_create_board(api_client: BoardApi, delete_board: dict):
     board_list_before = api_client.get_all_boards_by_org_id("ID организации")

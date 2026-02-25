@@ -1,3 +1,4 @@
+import requests
 from api.BoardApi import BoardApi
 
 base_url = "https://trello.com/ru"
